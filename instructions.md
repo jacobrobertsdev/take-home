@@ -12,4 +12,4 @@ This take home assessment is meant to provide a good understanding of _your_ pro
 
 ### Resources
 - API docs: https://fakestoreapi.com/docs
-- End Goal: <video controls src="end-goal.mp4" title="Title"></video>
+- End Goal: [end-goal.mp4](https://github.com/EtownWholesaleDev/take-home/blob/main/end-goal.mp4)
