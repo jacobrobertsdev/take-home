@@ -5,8 +5,10 @@ Please read and follow these instructions carefully. This task is designed to de
 - Api Usage in a frontend environment using JavaScript
 
 ### Objective
-This simple eccomerce site shows a list of 20 items in 4 categories. Your task is to add a new feature to the site. Please see `end-goal.mp4` to see what the site should look like after you create the feature.
-The Feature requested is a category selection feature. The end result will have a button for each category served by the API. When clicked, each button should update the content of the product grid to show only products in that category.
+Your task is to add a category selection feature to this simple ecommerce site, which displays a list of 20 items across 4 categories. The final result should include a button for each category provided by the API. When a button is clicked, the product grid should update to display only the products within the selected category. Refer to `end-goal.mp4` for a visual representation of the expected outcome.
+
+### AI Restrictions
+This take home assessment is meant to provide a good understanding of _your_ programming and development skills. We ask that you refrain from using any sort of AI generated solutions or code in the completion of this project. While AI is quickly becoming a vital part of a developers tool kit, a developer suited for this role should not need AI assistance to complete this simple task. The assessment is intentionally simple and basic to respect your time. We ask that you respect this descision and refrain from using AI assistance.
 
 ### Resources
 - API docs: https://fakestoreapi.com/docs
