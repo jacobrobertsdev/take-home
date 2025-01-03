@@ -44,6 +44,15 @@ function createButtonElement(category) {
     return button;
 }
 
+// Display categories on the page
+function displayCategories(categories) {
+    const categoryContainer = document.querySelector('.categories-container');
+    categories.forEach((category) => {
+        const button = createButtonElement(category);
+        categoryContainer.appendChild(button);
+    });
+}
+
 
 // Display all products on the page based on the given data
 function displayProducts(products) {
