@@ -2,6 +2,7 @@
  * You are welcome to change and update any code within this file as part of your solution
  */
 
+// Cache for filtered product lists by category
 const categoryCache = {};
 
 // Fetch products from the API and display them on the page
@@ -54,7 +55,7 @@ function displayCategories(data, categories) {
     const categoryContainer = document.querySelector(".categories-container");
 
     // Create a button for each unique category and append to container
-    categories.forEach((category) => {
+    categories.forEach(category => {
         const button = createButtonElement(category);
         categoryContainer.appendChild(button);
     });
@@ -69,7 +70,7 @@ function handleClicks(data) {
     const buttons = document.querySelectorAll("button[data-category]");
 
     // Setup click event for each button
-    buttons.forEach((button) =>
+    buttons.forEach(button =>
         button.addEventListener("click", (e) => {
             // Get category from target element data attribute
             const selectedCategory = e.target.dataset.category;
@@ -109,7 +110,7 @@ function searchProducts(data) {
 function displayProducts(products) {
     const productGrid = document.querySelector(".product-grid");
     productGrid.innerHTML = "";
-    products.forEach((product) => {
+    products.forEach(product => {
         const productElement = createProductElement(product);
         productGrid.appendChild(productElement);
     });
