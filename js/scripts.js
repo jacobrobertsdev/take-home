@@ -2,6 +2,8 @@
  * You are welcome to change and update any code within this file as part of your solution
  */
 
+const categoryCache = {};
+
 // Fetch products from the API and display them on the page
 document.addEventListener("DOMContentLoaded", () => {
     fetchAllProducts();
@@ -72,12 +74,14 @@ function handleClicks(data) {
             // Get category from target element data attribute
             const selectedCategory = e.target.dataset.category;
 
-            if (selectedCategory === "all") {
-                displayProducts(data);
-            } else {
-                const relevantProducts = data.filter((product) => product.category === selectedCategory);
-                displayProducts(relevantProducts);
+            // Add matching products to cache if not present
+            if (!categoryCache[selectedCategory]) {
+                categoryCache[selectedCategory] = data.filter((product) => product.category === selectedCategory);
             }
+
+            // Display products matching the selected category
+            const products = selectedCategory === "all" ? data : categoryCache[selectedCategory];
+            displayProducts(products);
         })
     );
 }
