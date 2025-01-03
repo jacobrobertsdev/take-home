@@ -75,7 +75,7 @@ function handleClicks(data) {
             const selectedCategory = e.target.dataset.category;
 
             // Add matching products to cache if not present
-            if (!categoryCache[selectedCategory]) {
+            if (!categoryCache[selectedCategory] && selectedCategory !== "all") {
                 categoryCache[selectedCategory] = data.filter((product) => product.category === selectedCategory);
             }
 
