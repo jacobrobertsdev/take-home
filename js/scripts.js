@@ -76,7 +76,7 @@ function handleClicks(data) {
 
             // Add matching products to cache if not present
             if (!categoryCache[selectedCategory] && selectedCategory !== "all") {
-                categoryCache[selectedCategory] = data.filter((product) => product.category === selectedCategory);
+                categoryCache[selectedCategory] = data.filter(product => product.category === selectedCategory);
             }
 
             // Display products matching the selected category
