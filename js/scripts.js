@@ -27,7 +27,7 @@ async function fetchAllProducts() {
     } catch (error) {
         // Handle and display error
         console.log(error);
-        alert(error);
+        alert("An error occurred while fetching products. Please try again later.");
     }
 }
 
