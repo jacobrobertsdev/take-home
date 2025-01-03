@@ -4,19 +4,30 @@
 
 // Fetch products from the API and display them on the page
 document.addEventListener('DOMContentLoaded', () => {
-    fetchProducts();
+    fetchAllProducts();
 });
 
 // Fetch products from the API
-function fetchProducts() {
-    fetch('https://fakestoreapi.com/products')
-        .then(response => response.json())
-        .then(data => {
-            displayProducts(data);
-            displayCategories(getAllCategories(data));
-        })
-        .catch(error => console.error('Error fetching products:', error));
+async function fetchAllProducts() {
+    try {
+        // Fetch all products
+        const response = await fetch('https://fakestoreapi.com/products');
+
+        // Throw an error if fetch fails
+        if (!response.ok) throw new Error(`Failed to fetch products. HTTP Status code: ${response.status}. Message: ${response.statusText}`);
+
+        // Parse data and pass to helper functions
+        const data = await response.json();
+        displayProducts(data);
+        displayCategories(getAllCategories(data));
+    } catch (error) {
+        // Handle error
+        console.log(error);
+        alert(error);
+    }
 }
+
+
 
 // Display all products on the page based on the given data
 function displayProducts(products) {
