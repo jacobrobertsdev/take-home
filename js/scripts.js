@@ -33,6 +33,18 @@ function getAllCategories(products) {
     return [...new Set(products.map(product => product.category))];
 }
 
+// Create button element for each category
+function createButtonElement(category) {
+    const button = document.createElement('button');
+
+    // Set button data attribute and text to category passed in
+    button.dataset.category = category;
+    button.textContent = category;
+
+    return button;
+}
+
+
 // Display all products on the page based on the given data
 function displayProducts(products) {
     const productGrid = document.querySelector('.product-grid');
@@ -55,4 +67,3 @@ function createProductElement(product) {
     `;
     return productElement;
 }
-
