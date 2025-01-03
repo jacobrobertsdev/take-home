@@ -23,6 +23,7 @@ async function fetchAllProducts() {
         const data = await response.json();
         displayProducts(data);
         displayCategories(data, getAllCategories(data));
+        searchProducts(data);
     } catch (error) {
         // Handle and display error
         console.log(error);
@@ -74,11 +75,30 @@ function handleClicks(data) {
             if (selectedCategory === "all") {
                 displayProducts(data);
             } else {
-                const relevantProducts = data.filter((product) => product.category === category);
+                const relevantProducts = data.filter((product) => product.category === selectedCategory);
                 displayProducts(relevantProducts);
             }
         })
     );
+}
+
+// Add Search functionality
+function searchProducts(data) {
+    // Get search input element
+    const input = document.querySelector('#search');
+
+    // Listen for user input and update product display
+    input.addEventListener('input', () => {
+        // Format user input
+        const query = input.value.trim().toLowerCase();
+
+        if (query === "") {
+            displayProducts(data);
+        } else {
+            const filtered = data.filter(product => product.title.toLowerCase().includes(query));
+            displayProducts(filtered);
+        }
+    });
 }
 
 // Display all products on the page based on the given data
