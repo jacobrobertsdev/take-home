@@ -36,7 +36,7 @@ async function fetchAllProducts() {
 // Get unique product categories from data returned by FetchAllProducts
 function getAllCategories(products) {
     // Return an array of unique categories
-    return [...new Set(products.map((product) => product.category))];
+    return [...new Set(products.map(product => product.category))];
 }
 
 // Create button element for each category
