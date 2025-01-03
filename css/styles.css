@@ -39,6 +39,7 @@ header {
     border-radius: 100px;
     background-color: transparent;
     padding: .7rem;
+    min-width: 3rem;
 }
 
 .categories-container button:hover,
