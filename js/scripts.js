@@ -27,7 +27,11 @@ async function fetchAllProducts() {
     }
 }
 
-
+// Get unique product categories from data returned by FetchAllProducts
+function getAllCategories(products) {
+    // Return array of unique categories
+    return [...new Set(products.map(product => product.category))];
+}
 
 // Display all products on the page based on the given data
 function displayProducts(products) {
