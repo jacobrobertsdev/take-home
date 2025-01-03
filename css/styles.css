@@ -38,7 +38,7 @@ header {
     border: solid 1px #313131;
     border-radius: 100px;
     background-color: transparent;
-    padding: .6rem;
+    padding: .5rem 1rem;
     min-width: 3rem;
 }
 
