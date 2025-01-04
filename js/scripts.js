@@ -54,6 +54,9 @@ function displayCategories(data, categories) {
     // Get container element
     const categoryContainer = document.querySelector(".categories-container");
 
+    // Create 'all' category button
+    categoryContainer.appendChild(createButtonElement("all"));
+
     // Create a button for each unique category and append to container
     categories.forEach(category => {
         const button = createButtonElement(category);
@@ -128,3 +131,4 @@ function createProductElement(product) {
     `;
     return productElement;
 }
+
