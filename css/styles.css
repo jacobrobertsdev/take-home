@@ -139,7 +139,7 @@ header .search {
 }
 
 .search input {
-    padding: 0.5em;
+    padding: .5rem 1rem;
     border-radius: 5px;
     border: none;
     margin-right: 1em;
@@ -154,11 +154,6 @@ header .search {
     color: var(--accent);
 }
 
-.search button {
-    background-color: transparent;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
+.search svg {
+    padding: .5rem;
 }
