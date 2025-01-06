@@ -52,10 +52,9 @@ function createButtonElement(category) {
 
 // Display category buttons on the page
 function displayCategories(data, categories) {
-    // Get container element
     const categoryContainer = document.querySelector(".categories-container");
 
-    // Create a button for each category and append to container
+    // Append a button for each category to container
     ["all", ...categories].forEach(category => {
         categoryContainer.appendChild(createButtonElement(category));
     });
