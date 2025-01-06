@@ -43,6 +43,7 @@ function getAllCategories(products) {
 // Create button element for each category
 function createButtonElement(category) {
     const button = document.createElement("button");
+
     // Set button data attribute and text to the category passed in
     button.dataset.category = category;
     button.textContent = category;
@@ -54,16 +55,12 @@ function displayCategories(data, categories) {
     // Get container element
     const categoryContainer = document.querySelector(".categories-container");
 
-    // Create 'all' category button
-    categoryContainer.appendChild(createButtonElement("all"));
-
-    // Create a button for each unique category and append to container
-    categories.forEach(category => {
-        const button = createButtonElement(category);
-        categoryContainer.appendChild(button);
+    // Create a button for each category and append to container
+    ["all", ...categories].forEach(category => {
+        categoryContainer.appendChild(createButtonElement(category));
     });
 
-    // Handle click events
+    // Handle click events once buttons have been added
     handleClicks(data);
 }
 
