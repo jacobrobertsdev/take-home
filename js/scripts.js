@@ -1,7 +1,3 @@
-/**
- * You are welcome to change and update any code within this file as part of your solution
- */
-
 // Cache for filtered product lists by category
 const categoryCache = {};
 
@@ -13,22 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // Fetch products from the API
 async function fetchAllProducts() {
     try {
-        // Fetch all products
         const response = await fetch("https://fakestoreapi.com/products");
 
-        // Throw an error if fetch fails
-        if (!response.ok)
+        if (!response.ok) {
             throw new Error(
                 `Failed to fetch products. HTTP Status code: ${response.status}. Message: ${response.statusText}`
             );
+        }
 
-        // Parse data and pass to helper functions
         const data = await response.json();
         displayProducts(data);
         displayCategories(data, getAllCategories(data));
         searchProducts(data);
     } catch (error) {
-        // Handle and display error
         console.log(error);
         alert("An error occurred while fetching products. Please try again later.");
     }
@@ -36,25 +29,21 @@ async function fetchAllProducts() {
 
 // Get unique product categories from data returned by FetchAllProducts
 function getAllCategories(products) {
-    // Return an array of unique categories
     return [...new Set(products.map(product => product.category))];
 }
 
 // Create button element for each category
 function createButtonElement(category) {
     const button = document.createElement("button");
-
-    // Set button data attribute and text to the category passed in
     button.dataset.category = category;
     button.textContent = category;
     return button;
 }
 
-// Display category buttons on the page
+// Append button for each category to the page
 function displayCategories(data, categories) {
     const categoryContainer = document.querySelector(".categories-container");
 
-    // Append a button for each category to container
     ["all", ...categories].forEach(category => {
         categoryContainer.appendChild(createButtonElement(category));
     });
@@ -65,10 +54,8 @@ function displayCategories(data, categories) {
 
 // Handle category button clicks and update product grid
 function handleClicks(data) {
-    // Get all category buttons
     const buttons = document.querySelectorAll("button[data-category]");
 
-    // Setup click event for each button
     buttons.forEach(button =>
         button.addEventListener("click", (e) => {
             // Get category from target element data attribute
@@ -88,12 +75,10 @@ function handleClicks(data) {
 
 // Add Search functionality
 function searchProducts(data) {
-    // Get search input element
     const input = document.querySelector('#search');
 
     // Listen for user input and update product display
     input.addEventListener('input', () => {
-        // Format user input
         const query = input.value.trim().toLowerCase();
 
         if (query === "") {
