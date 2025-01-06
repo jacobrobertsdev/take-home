@@ -78,7 +78,7 @@ function searchProducts(data) {
     input.addEventListener('input', () => {
         const query = input.value.trim().toLowerCase();
 
-        if (query === "") {
+        if (!query) {
             displayProducts(data);
         } else {
             const filtered = data.filter(product => product.title.toLowerCase().includes(query));
