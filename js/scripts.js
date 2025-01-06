@@ -12,9 +12,7 @@ async function fetchAllProducts() {
         const response = await fetch("https://fakestoreapi.com/products");
 
         if (!response.ok) {
-            throw new Error(
-                `Failed to fetch products. HTTP Status code: ${response.status}. Message: ${response.statusText}`
-            );
+            throw new Error(`Failed to fetch products. HTTP Status code: ${response.status}. Message: ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -48,11 +46,11 @@ function displayCategories(data, categories) {
         categoryContainer.appendChild(createButtonElement(category));
     });
 
-    // Handle click events once buttons have been added
+    // Setup click event listeners once buttons have been added
     handleClicks(data);
 }
 
-// Handle category button clicks and update product grid
+// Handle category button clicks, updating product grid
 function handleClicks(data) {
     const buttons = document.querySelectorAll("button[data-category]");
 
@@ -77,7 +75,6 @@ function handleClicks(data) {
 function searchProducts(data) {
     const input = document.querySelector('#search');
 
-    // Listen for user input and update product display
     input.addEventListener('input', () => {
         const query = input.value.trim().toLowerCase();
 
